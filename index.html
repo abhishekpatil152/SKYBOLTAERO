@@ -6,70 +6,130 @@
   <title>Skybolt Aero</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Reset basic layout */
     html, body {
-      margin: 0; padding: 0; height: 100%; width: 100%;
-      overflow: hidden; background: #e3e3e3;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #e3e3e3;
+      font-family: 'Space Grotesk', Arial, sans-serif;
     }
+
+    /* Fullscreen 3D canvas */
     .spline-hero {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      overflow: hidden;
     }
+
     .spline-hero iframe {
-      width: 100vw; height: 100vh; border: none; display: block; background: transparent;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      display: block;
     }
+
+    /* Top Navigation Bar */
     .top-bar {
-      position: fixed; top: 0; left: 0; width: 100vw;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 28px 5vw 0 5vw; box-sizing: border-box; z-index: 3;
-      background: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5vw;
+      box-sizing: border-box;
+      z-index: 10;
       pointer-events: none;
     }
+
     .logo {
-      font-family: 'Space Grotesk', Arial, sans-serif;
       font-weight: 700;
       font-size: 2rem;
       letter-spacing: 0.08em;
       color: #fff;
       pointer-events: auto;
-      background: none;
-      box-shadow: none;
       user-select: none;
     }
-    nav { pointer-events: auto; }
-    .nav-links {
-      display: flex; gap: 2.4vw; align-items: center;
-      font-family: 'Space Grotesk', Arial, sans-serif;
-      font-weight: 400;
+
+    nav {
+      pointer-events: auto;
     }
+
+    .nav-links {
+      display: flex;
+      gap: 2.4vw;
+      align-items: center;
+    }
+
     .nav-links a {
       color: #fff;
       text-decoration: none;
       font-size: 1.1rem;
-      background: none;
-      border-radius: 16px;
-      padding: 6px 17px;
-      font-family: 'Space Grotesk', Arial, sans-serif;
+      border-radius: 1rem;
+      padding: 0.5rem 1.2rem;
       font-weight: 400;
-      transition: background 0.15s, color 0.15s;
-      pointer-events: auto;
+      background: none;
+      transition: background 0.2s ease, color 0.2s ease;
     }
-    .nav-links a:hover, .nav-links a:focus {
+
+    .nav-links a:hover,
+    .nav-links a:focus {
       background: #ddd;
       color: #111;
     }
-    @media (max-width: 600px) {
+
+    /* Responsive Design for Tablets and Phones */
+    @media (max-width: 768px) {
       .top-bar {
-        flex-direction: column; align-items: flex-start; gap: 9px; padding: 18px 4vw 0 4vw;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1rem 4vw;
       }
-      .logo { font-size: 1.18rem; }
-      .nav-links { gap: 3vw; font-size: 0.95rem; }
-      .nav-links a { padding: 6px 9px; font-size: 0.94rem; }
+
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: flex-start;
+      }
+
+      .nav-links a {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .nav-links {
+        gap: 0.4rem;
+      }
+
+      .nav-links a {
+        font-size: 0.88rem;
+        padding: 0.4rem 0.7rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="spline-hero">
-    <iframe src="https://my.spline.design/drone-0KlGwcTGcoDXh9IsnoCUame8/" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://my.spline.design/drone-0KlGwcTGcoDXh9IsnoCUame8/" allowfullscreen></iframe>
   </div>
+
   <div class="top-bar">
     <div class="logo">SKYBOLT AERO</div>
     <nav>
