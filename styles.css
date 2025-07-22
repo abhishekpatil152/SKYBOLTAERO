@@ -1,116 +1,160 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: #fff;
-  color: #111;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f7fa;
 }
 
-/* Navbar */
 header {
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #eee;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1.5rem 0;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .logo {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
 }
 
 nav ul {
   display: flex;
   gap: 2rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-nav ul li a {
+nav a {
+  color: #23293a;
   text-decoration: none;
-  color: black;
-  font-size: 0.9rem;
-  transition: color 0.3s;
+  position: relative;
+  transition: color 0.2s;
 }
 
-nav ul li a:hover {
-  color: #666;
+nav a:hover {
+  color: #1d72b8;
 }
 
-nav ul li .contact {
-  background: black;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-}
-
-/* Hero Section */
 .hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  max-width: 900px;
-  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70vh;
+  max-width: 1080px;
+  margin: 3rem auto 0;
+  gap: 2rem;
+  padding: 0 2rem;
 }
 
-/* Animated Fade-in Text */
+.text-content {
+  flex: 1;
+}
+
 .fade-in {
-  animation: fadeInUp 1.2s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fade-in 1.2s ease-out forwards;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+@keyframes fade-in {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
-.text-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 800;
-}
-
-.text-content p {
+button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: #1d72b8;
+  color: #fff;
   font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 2rem;
-}
-
-.text-content button {
-  padding: 0.8rem 1.6rem;
-  background-color: black;
-  color: white;
+  letter-spacing: 1px;
   border: none;
+  border-radius: 30px;
   cursor: pointer;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 
-.text-content button:hover {
-  background-color: #333;
+button:hover {
+  background: #155d8c;
+  transform: scale(1.06);
 }
 
-/* Image */
 .image-container {
-  margin-top: 2.5rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.image-container img {
-  width: 100%;
-  max-width: 700px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+/* Swinging and floating animation for the drone image */
+.drone-animate {
+  width: 95%;
+  max-width: 440px;
+  border-radius: 1rem;
+  box-shadow: 0 16px 40px rgba(29,114,184,0.13);
+  transform-origin: 50% 10%; /* Swings from near the top center */
+  animation: floatSwingDrone 3s cubic-bezier(0.4,0.6,0.4,1) infinite alternate;
 }
+
+@keyframes floatSwingDrone {
+  0%   { transform: translateY(0px) rotate(-4deg); }
+  20%  { transform: translateY(-8px) rotate(-2deg); }
+  50%  { transform: translateY(-16px) rotate(0deg);}
+  80%  { transform: translateY(-8px) rotate(2deg);}
+  100% { transform: translateY(0px) rotate(4deg);}
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column-reverse;
+    gap: 3rem;
+  }
+  .image-container {
+    width: 100%;
+  }
+}
+.drone-hover {
+  width: 95%;
+  max-width: 440px;
+  border-radius: 1rem;
+  box-shadow: 0 16px 40px rgba(29,114,184,0.13);
+  animation: drone-float 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes drone-float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-32px); /* Adjust this value for float height */
+  }
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  background: none;
+  border-radius: 16px;
+  padding: 6px 17px;
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-weight: 400;
+  transition: color 0.3s cubic-bezier(.4,0,.2,1), background 0.2s cubic-bezier(.4,0,.2,1);
+  pointer-events: auto;
+}
+.nav-links a:hover,
+.nav-links a:focus {
+  background: #ddd;
+  color: #111;
+}
+
